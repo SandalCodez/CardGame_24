@@ -69,9 +69,9 @@ public class GameController {
     @FXML
     void hintBtnClick(ActionEvent event) {
         hintCount++;
-        label1.setText("C'mon human!");
+
         if (hintCount == 3) {
-            label1.setText("Are you sure?");
+            label1.setText("Try Harder");
         }if (hintCount >= 5) {
             label1.setText("Shame");
         }
@@ -111,30 +111,17 @@ public class GameController {
         String card3StringValue = Integer.toString(card3Value);
         String card4StringValue = Integer.toString(card4Value);
 
-        boolean numcheck = false;
+
         int count = 0;
-
-//        System.out.println("verifyBtnClick");
-
-        for(int i = 0; i <= expressionTxt.getText().length()-1; i++) {
-            if(exp.charAt(i)==card1StringValue.charAt(0)) {
+        for(int i = 0; i <= exp.length()-1; i++) {
+            if(exp.charAt(i) == (card1StringValue.charAt(0)) ||
+               exp.charAt(i) == (card2StringValue.charAt(0)) ||
+               exp.charAt(i) == (card3StringValue.charAt(0)) ||
+               exp.charAt(i) == ( card4StringValue.charAt(0))) {
                 count++;
-                i=0;
-                if(exp.charAt(i)==card2StringValue.charAt(0)) {
-                    count++;
-                    i=0;
-                    if(exp.charAt(i)==card3StringValue.charAt(0)) {
-                        count++;
-                        i=0;
-                        if(exp.charAt(i)==card4StringValue.charAt(0)) {
-                            count++;
-
-                        }
-                    }
-                }
             }
-
         }
+
         if(count == 4) {
 
             Solution s1 = new Solution();
