@@ -81,7 +81,7 @@ public class GameController {
 
         Solution solution = new Solution();
         String result = solution.findSOlution(card1Value, card2Value, card3Value, card4Value);
-//        result = result.replaceAll("\\d", " ");
+        result = result.replaceAll("\\d", " ");
         System.out.println(result);
 
 
