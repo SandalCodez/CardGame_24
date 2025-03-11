@@ -52,12 +52,20 @@ public class GameController {
     @FXML
     private Label label1;
 
-    private randomCard r1 = new randomCard();
-    private randomCard r2 = new randomCard();
-    private randomCard r3 = new randomCard();
-    private randomCard r4 = new randomCard();
+    @FXML
+    private Label label2;
 
-    private CardValue cardVal = new CardValue();
+    private final randomCard r1 = new randomCard();
+    private final randomCard r2 = new randomCard();
+    private final randomCard r3 = new randomCard();
+    private final randomCard r4 = new randomCard();
+
+    String card1StringValue;
+    String card2StringValue;
+    String card3StringValue;
+    String card4StringValue;
+
+    private final CardValue cardVal = new CardValue();
 
     int card1Value;
     int card2Value;
@@ -65,35 +73,52 @@ public class GameController {
     int card4Value;
 
 
-
     @FXML
     void hintBtnClick(ActionEvent event) {
         hintCount++;
+//        Api api = new Api();
+//        String hint = api.getResponse(card1StringValue, card2StringValue, card3StringValue, card4StringValue);
+
+        Solution solution = new Solution();
+        String result = solution.findSOlution(card1Value, card2Value, card3Value, card4Value);
+//        result = result.replaceAll("\\d", " ");
+        System.out.println(result);
+
 
         if (hintCount == 3) {
             label1.setText("Try Harder");
-        }if (hintCount >= 5) {
-            label1.setText("Shame");
         }
-
+        if (hintCount >= 5) {
+            label2.setText(result);
+        }
     }
-
 
     @FXML
     void refreshBtnClick(ActionEvent event) {
-        String cardUrl1 = r1.getRandomCard();String cardUrl2 = r2.getRandomCard();
-        String cardUrl3 = r3.getRandomCard();String cardUrl4 = r4.getRandomCard();
+
+        label2.setText("");
+        label1.setText("");
+
+
+        String cardUrl1 = r1.getRandomCard();
+        String cardUrl2 = r2.getRandomCard();
+        String cardUrl3 = r3.getRandomCard();
+        String cardUrl4 = r4.getRandomCard();
 
         Image card1 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl1)));
         Image card2 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl2)));
         Image card3 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl3)));
         Image card4 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl4)));
 
-        cardImage1.setImage(card1);cardImage2.setImage(card2);
-        cardImage3.setImage(card3);cardImage4.setImage(card4);
+        cardImage1.setImage(card1);
+        cardImage2.setImage(card2);
+        cardImage3.setImage(card3);
+        cardImage4.setImage(card4);
 
-        card1Value = cardVal.getCardValue(cardUrl1);card2Value = cardVal.getCardValue(cardUrl2);
-        card3Value = cardVal.getCardValue(cardUrl3);card4Value = cardVal.getCardValue(cardUrl4);
+        card1Value = cardVal.getCardValue(cardUrl1);
+        card2Value = cardVal.getCardValue(cardUrl2);
+        card3Value = cardVal.getCardValue(cardUrl3);
+        card4Value = cardVal.getCardValue(cardUrl4);
 
 
         System.out.println(cardUrl1 + "\n" + cardUrl2 + "\n" + cardUrl3 + "\n" + cardUrl4);
@@ -104,6 +129,7 @@ public class GameController {
 
     @FXML
     void verifyBtnClick(ActionEvent event) {
+        label2.setText("");
         String exp = expressionTxt.getText();
 
         String card1StringValue = Integer.toString(card1Value);
@@ -113,29 +139,30 @@ public class GameController {
 
 
         int count = 0;
-        for(int i = 0; i <= exp.length()-1; i++) {
-            if(exp.charAt(i) == (card1StringValue.charAt(0)) ||
-               exp.charAt(i) == (card2StringValue.charAt(0)) ||
-               exp.charAt(i) == (card3StringValue.charAt(0)) ||
-               exp.charAt(i) == ( card4StringValue.charAt(0))) {
+        for (int i = 0; i <= exp.length() - 1; i++) {
+            if (exp.charAt(i) == (card1StringValue.charAt(0)) ||
+                    exp.charAt(i) == (card2StringValue.charAt(0)) ||
+                    exp.charAt(i) == (card3StringValue.charAt(0)) ||
+                    exp.charAt(i) == (card4StringValue.charAt(0))) {
                 count++;
             }
         }
 
-        if(count == 4) {
+        if (count >= 4) {
 
             Solution s1 = new Solution();
             boolean correct = s1.checkSolution(expressionTxt.getText());
             if (correct) {
                 System.out.println("correct");
+                label1.setText("Correct!");
             } else {
                 System.out.println("incorrect");
+                label1.setText("Incorrect.");
             }
-        }else{
+        } else {
             System.out.println("Your expression must contain all the cards");
+            label2.setText("Your expression must contain all the cards");
         }
-
-
 
 
     }

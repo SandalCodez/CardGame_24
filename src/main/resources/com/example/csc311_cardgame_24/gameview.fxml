@@ -9,123 +9,100 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311_cardgame_24.GameController">
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311_cardgame_24.GameController">
    <children>
-      <HBox prefHeight="106.0" prefWidth="600.0">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="619.0">
          <children>
-            <Button fx:id="hintBtn" mnemonicParsing="false" onAction="#hintBtnClick" prefHeight="79.0" prefWidth="219.0" text="Hint">
-               <font>
-                  <Font name="OCR A Extended" size="41.0" />
-               </font>
-               <effect>
-                  <SepiaTone level="0.38" />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="WAIT" />
-               </cursor></Button>
-            <Label fx:id="label1" alignment="CENTER" prefHeight="78.0" prefWidth="152.0" text="C'mon Human!">
-               <font>
-                  <Font name="OCR A Extended" size="20.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.5" centerY="0.5189573459715641" cycleMethod="REFLECT" radius="0.6379310344827587">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.30908870697021484" green="0.7763158082962036" blue="0.34023717045783997" opacity="0.36000001430511475" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.04573170731707317">
-                           <color>
-                              <Color red="0.30908870697021484" green="0.7763158082962036" blue="0.34023717045783997" opacity="0.36000001430511475" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.17682926829268295">
-                           <color>
-                              <Color red="0.30799999833106995" green="0.7699999809265137" blue="0.3310999870300293" opacity="0.825648844242096" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.32012195121951215">
-                           <color>
-                              <Color red="0.2475000023841858" green="0.550000011920929" blue="0.5046250224113464" />
-                           </color>
-                        </Stop>
-                        <Stop offset="0.47256097560975613">
-                           <color>
-                              <Color red="0.42899999022483826" green="0.2475000023841858" blue="0.550000011920929" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.4318809509277344" green="0.2475000023841858" blue="0.550000011920929" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill></Label>
-            <Button fx:id="refreshBtn" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="79.0" prefWidth="228.0" text="Refresh">
-               <font>
-                  <Font name="OCR A Extended" size="41.0" />
-               </font>
-               <effect>
-                  <SepiaTone level="0.33" />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="CROSSHAIR" />
-               </cursor></Button>
+            <HBox prefHeight="106.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="hintBtn" mnemonicParsing="false" onAction="#hintBtnClick" prefHeight="79.0" prefWidth="219.0" text="Hint">
+                     <font>
+                        <Font name="OCR A Extended" size="41.0" />
+                     </font>
+                     <effect>
+                        <SepiaTone level="0.38" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="WAIT" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="label1" alignment="CENTER" prefHeight="78.0" prefWidth="152.0" text="C'mon Human!" textFill="#cf2596">
+                     <font>
+                        <Font name="OCR A Extended" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="refreshBtn" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="79.0" prefWidth="248.0" text="Refresh">
+                     <font>
+                        <Font name="OCR A Extended" size="41.0" />
+                     </font>
+                     <effect>
+                        <SepiaTone level="0.33" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="220.0" prefWidth="753.0" spacing="4.0">
+               <children>
+                  <AnchorPane fx:id="card1" prefHeight="220.0" prefWidth="181.0" style="-fx-border-color: DARKOLIVEGREEN; -fx-border-width: 3;">
+                     <children>
+                        <ImageView fx:id="cardImage1" fitHeight="210.0" fitWidth="144.0" layoutY="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="card2" prefHeight="220.0" prefWidth="181.0" style="-fx-border-color: DARKOLIVEGREEN; -fx-border-width: 3;">
+                     <children>
+                        <ImageView fx:id="cardImage2" fitHeight="210.0" fitWidth="144.0" layoutY="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="card3" prefHeight="220.0" prefWidth="181.0" style="-fx-border-color: DARKOLIVEGREEN; -fx-border-width: 3;">
+                     <children>
+                        <ImageView fx:id="cardImage3" fitHeight="210.0" fitWidth="144.0" layoutY="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="card4" prefHeight="220.0" prefWidth="181.0" style="-fx-border-color: DARKOLIVEGREEN; -fx-border-width: 3;">
+                     <children>
+                        <ImageView fx:id="cardImage4" fitHeight="210.0" fitWidth="140.0" layoutY="5.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="116.0" prefHeight="76.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="228.0" text="Enter an expression:  " textFill="#d02597">
+                     <font>
+                        <Font name="Old English Text MT" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="expressionTxt" prefHeight="77.0" prefWidth="149.0" promptText="( 4 - ( 8 - 6 ) ) * 12">
+                     <font>
+                        <Font name="Old English Text MT" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Button fx:id="verifyBtn" mnemonicParsing="false" onAction="#verifyBtnClick" prefHeight="75.0" prefWidth="241.0" text="Verify">
+                     <font>
+                        <Font name="Old English Text MT" size="33.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="label2" alignment="CENTER" prefHeight="33.0" prefWidth="643.0" textFill="#d9e80b" />
          </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="10.0" prefHeight="220.0" prefWidth="753.0">
-         <children>
-            <AnchorPane fx:id="card1" prefHeight="221.0" prefWidth="181.0">
-               <children>
-                  <ImageView fx:id="cardImage1" fitHeight="210.0" fitWidth="149.0" layoutX="13.0" layoutY="5.0" />
-               </children></AnchorPane>
-            <AnchorPane fx:id="card2" prefHeight="220.0" prefWidth="161.0">
-               <children>
-                  <ImageView fx:id="cardImage2" fitHeight="210.0" fitWidth="149.0" layoutX="3.0" layoutY="5.0" />
-               </children></AnchorPane>
-            <AnchorPane fx:id="card3" prefHeight="183.0" prefWidth="133.0">
-               <children>
-                  <ImageView fx:id="cardImage3" fitHeight="210.0" fitWidth="130.0" layoutX="-9.0" layoutY="5.0" />
-               </children></AnchorPane>
-            <AnchorPane fx:id="card4" prefHeight="165.0" prefWidth="150.0">
-               <children>
-                  <ImageView fx:id="cardImage4" fitHeight="210.0" fitWidth="140.0" layoutX="2.0" layoutY="7.0" />
-               </children></AnchorPane>
-         </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="116.0" prefHeight="76.0" prefWidth="600.0">
-         <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="228.0" text="Enter an expression:  ">
-               <font>
-                  <Font name="Old English Text MT" size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="expressionTxt" prefHeight="77.0" prefWidth="149.0" promptText="( 5 + 1 ) - 2 * 7">
-               <font>
-                  <Font name="Old English Text MT" size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-            <Button fx:id="verifyBtn" mnemonicParsing="false" onAction="#verifyBtnClick" prefHeight="75.0" prefWidth="222.0" text="Verify">
-               <font>
-                  <Font name="Old English Text MT" size="33.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></Button>
-         </children>
-      </HBox>
+         <effect>
+            <Blend />
+         </effect>
+      </VBox>
    </children>
-   <effect>
-      <Blend />
-   </effect>
-</VBox>
+</StackPane>
