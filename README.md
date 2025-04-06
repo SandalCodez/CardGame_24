@@ -6,7 +6,7 @@ A JavaFX implementation of the classic 24 Game where players use basic arithmeti
 
 In this game, players are presented with four randomly selected playing cards and must use addition, subtraction, multiplication, and division to create a mathematical expression that equals 24 using each card exactly once. For example, if given cards with values 3, 8, 8, and 3, a valid solution might be: `(8 / (3 - (8 / 3))) = 24`.
 
-![Game Screenshot](screenshots/game24ScreenShot.png)
+![Game Screenshot](screenshots/card24ScreenShot.png)
 
 ## Features
 
