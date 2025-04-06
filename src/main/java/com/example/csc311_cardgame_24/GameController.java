@@ -105,10 +105,10 @@ public class GameController {
         String cardUrl3 = r3.getRandomCard();
         String cardUrl4 = r4.getRandomCard();
 
-        Image card1 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl1)));
-        Image card2 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl2)));
-        Image card3 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl3)));
-        Image card4 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/Images/" + cardUrl4)));
+        Image card1 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/images/" + cardUrl1)));
+        Image card2 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/images/" + cardUrl2)));
+        Image card3 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/images/" + cardUrl3)));
+        Image card4 = new Image(String.valueOf(getClass().getResource("/com/example/csc311_cardgame_24/images/" + cardUrl4)));
 
         cardImage1.setImage(card1);
         cardImage2.setImage(card2);

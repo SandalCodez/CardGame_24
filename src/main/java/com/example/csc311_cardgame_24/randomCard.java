@@ -5,7 +5,7 @@ import java.util.Random;
 public class randomCard {
 
     final String pathConstant =
-    "/com/example/csc311_cardgame_24/Images/";
+            "/com/example/csc311_cardgame_24/images/";
 
 
     public String getRandomCard(){
